@@ -9,5 +9,6 @@ namespace BannyPotter.DBS.Core
     public interface IStatusCheckProcessor
     {
         StatusCheckResponse Check(StatusCheckRequest request);
+        Uri GenerateUri(StatusCheckRequest request);
     }
 }
