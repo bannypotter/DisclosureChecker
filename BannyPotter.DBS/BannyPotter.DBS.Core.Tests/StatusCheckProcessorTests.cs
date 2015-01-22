@@ -19,9 +19,7 @@ namespace BannyPotter.DBS.Core.Tests
             _validXml = File.ReadAllText("ExampleResponse.xml");
 
             Mock<WebClient> webClient = new Mock<WebClient>();
-            webClient.As<IDisposable>().Setup(p => p.Dispose());
-            webClient.Setup(w => w.DownloadString(It.IsAny<string>())).Returns(_validXml);
-
+            
             _processor = new StatusCheckProcessor(webClient.Object);
             _validUri = new Uri("https://secure.crbonline.gov.uk/crsc/api/status/1234567890?dateOfBirth=01/01/1984&surname=JONES&organisationName=ORGANISATIONNAME&employeeSurname=QUINN&employeeForename=THOMAS&hasAgreedTermsAndConditions=true");
         }
@@ -61,9 +59,5 @@ namespace BannyPotter.DBS.Core.Tests
                 throw;
             }
         }
-
-        //public void Check_ReturnsValidResponse()
-        //{
-        //}
     }
 }

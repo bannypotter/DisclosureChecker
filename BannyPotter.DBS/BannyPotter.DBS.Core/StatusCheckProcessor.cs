@@ -35,6 +35,19 @@ namespace BannyPotter.DBS.Core
             return response;
         }
 
+        public async Task<StatusCheckResponse> CheckAsync(StatusCheckRequest request)
+        {
+            if (request == null) throw new ArgumentNullException("request");
+
+            Uri uri = GenerateUri(request);
+            string xml = await _webClient.DownloadStringTaskAsync(uri);
+
+            StringReader stringReader = new StringReader(xml);
+            StatusCheckResponse response = (StatusCheckResponse)_xmlSerializer.Deserialize(stringReader);
+
+            return response;
+        }
+
         public Uri GenerateUri(StatusCheckRequest request)
         {
             string format = _baseUri + "{0}?dateOfBirth={1}&surname={2}&organisationName={3}&employeeSurname={4}&employeeForename={5}&hasAgreedTermsAndConditions={6}";
