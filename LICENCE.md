@@ -1,7 +1,3 @@
-# DisclosureChecker
-A .net library to work with the gov.uk Disclosure and Barring Service (DBS) formerly the Criminal Records Bureau (CRB).
-
-#Licence
 The MIT License (MIT)
 
 Copyright (c) 2015 James R Bancroft
