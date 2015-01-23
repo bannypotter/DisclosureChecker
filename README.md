@@ -1,4 +1,4 @@
-# DisclosureChecker
+# Disclosure Checker
 A .net library to work with the gov.uk Disclosure and Barring Service (DBS) formerly the Criminal Records Bureau (CRB).
 
 #Licence
